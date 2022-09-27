@@ -1,5 +1,107 @@
 <!DOCTYPE html>
+<html>
 <body>
-    <script src=p5.js></script>
-    <script src=script.js></script>
+  <!-- <script src='script.js'></script> -->
+  <script src='https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js'></script>
+  <div id=rotating_subbutton> </div>
+  <img id="subscribeButton" src="Subscrib Button.jpg" alt="The Subcription Button" width="304" height="228">
+  <img id="Cursor" src="Cursor.png" alt="Clickey Boy" width="64" height="64">
+  <canvas id="webCanvas"></canvas>
+
+
+<script type=module>
+
+
+    //creating a canvas I think? Kind of confusing when I try doing this in javascript so not sure
+    const subs = document.getElementById (`rotating_subbutton`)
+    subs.width = subs.parentNode.scrollWidth
+    subs.height = subs.width * 9 / 15
+    subs.style.height = `${subs.height}px`
+    subs.style.backgroundColor = `grey`
+  
+
+
+// Hide from here--- VVVVVVV
+
+
+subs.style.cursor = `none`
+
+const pointer = { x : 0, y : 0 }
+
+    subs.onpointermove = e => {
+    pointer.x = e.offsetX
+    pointer.y = e.offsetY
+    }
+
+    draw_frame; () => { 
+    subs.drawImage (Cursor, pointer.x, pointer.y)
+    requestAnimationFrame (draw_frame)
+    } 
+
+// ------to here to see progress with the subbutton ^^^^^^^^
+
+
+
+    // making the subbutton
+    const subbutton = document.getElementById (`subscribeButton`)
+    // subbutton.style.textColor "black"
+    // subbutton.style.textSize '100px'
+    subbutton.style.width  = `200px`
+    subbutton.style.height = `65px`
+    subbutton.style.backgroundColor = `gold`
+    // subbutton.style.position = `relative`
+
+    const trans_x = `translateX(${subs.width /2 - 100}px)`
+    const trans_y = `translateY(${subs.height/2 - -300}px)`
+    subbutton.style.transform = `${trans_x} ${trans_y}`
+
+    subs.append (subbutton)
+    // subs.append (Cursor)
+
+
+    const subbutton_mover = anime ({
+
+            // targetting the sub button
+            targets: subbutton,
+            //making it go zoom like a sub button on those youtube outros
+            duration: 2500,
+            // rotating the sub button all the way around and landing straight
+            rotate: `360deg`,
+            // to make it scale 1.5x it's size
+            scale: 1.5,
+            //we want the thing to go back dont we? lets make this bad boy
+            //alternate back to it's original position.
+            direction: `alternate`,
+            //making sure the subscribe button doesn't just play on web page open
+            autoplay: false,
+            // loop: false,
+        })
+
+    // telling the subbutton upon being clicked it has to play the mover method
+    subbutton.onclick = () => subbutton_mover.play()
+</script>
+
+
+
+
+
+<!-- ignore this code below hid it as I was going to work on making a horse racing game between 2 users where the fasted key inputs win
+but then like the rest of the code it broke and html is a pain when it comes to working out the layers and organisation and divs yeesh,
+going to either try again with a new future project post-semester or just scrap it all altogether, either way will delete in the submission-->
+
+
+  <!-- <div id= "hos1"> <img  width="100" height="200" src="/etc/HorseRider1.png" /> </div>
+  <-!-- <img width="100" height="200" src="etc/HorseRider1.png" /> -->
+  <!-- <script src=script.js></script>
+  <script src=p5.js></script> -->
+  <!-- <img id="leHorse1" src="HorseRider1.png" alt="The Jockeynhishorse" width="500" height="500"> -->
+  <!-- <script>
+  function myHorseys() {
+  var x = document.getElementById('leHorse1').src;
+  document.getElementById("lehorse").innerHTML = x;
+  }
+//  var x = document.createElement("IMG");\
+//   var x = document.getElementById("myImg"); 
+  </script> --> 
 </body>
+</html>
