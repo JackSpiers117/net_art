@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <!-- <script src='script.js'></script> -->
+  <script src='script.js'></script>
   <script src='https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js'></script>
-  <div id=rotating_subbutton> </div>
+  <canvas id=rotating_subbutton> </canvas>
   <img id="subscribeButton" src="Subscrib Button.jpg" alt="The Subcription Button" width="304" height="228">
-  <img id="Cursor" src="Cursor.png" alt="Clickey Boy" width="64" height="64">
-  <canvas id="webCanvas"></canvas>
-
-
-<script type=module>
-
-
-    //creating a canvas I think? Kind of confusing when I try doing this in javascript so not sure
-    const subs = document.getElementById (`rotating_subbutton`)
-    subs.width = subs.parentNode.scrollWidth
-    subs.height = subs.width * 9 / 15
-    subs.style.height = `${subs.height}px`
-    subs.style.backgroundColor = `grey`
+  <img id="horseButton" src="etc/HorseRider1.png" alt="horseriyda" width="304" height="228">
+  <img id="ecommerceTitle" src="nftTitle.png" alt="timetoshop" width = "300" height = "200">
+  <!-- <div id=rotating_subbutton><button id='tone_switch'></button></div> -->
+  <!-- <img id="Cursor" src="Cursor.png" alt="Clickey Boy" width="64" height="64"> -->
+  <!-- <canvas id="webCanvas"></canvas> -->
   
+ 
+<script type=module>
+    document.body.style.cursor = `url("/Cursor.png"), auto`
+    // document.body.style.margin   = 0
+    // document.body.style.overflow = `hidden`
+    //creating a canvas I think? Kind of confusing when I try doing this in javascript so not sure
+    const cnv = document.getElementById (`rotating_subbutton`)
+    cnv.width = cnv.parentNode.scrollWidth
+    cnv.height = cnv.width * 10 / 16
+    cnv.style.height = `${cnv.height}px`
+    cnv.style.backgroundColor = `lightpink`
+
 
 
 // Hide from here--- VVVVVVV
 
 
-subs.style.cursor = `none`
+// subs.style.cursor = `none`
 
-const pointer = { x : 0, y : 0 }
+// const pointer = { x : 0, y : 0 }
 
-    subs.onpointermove = e => {
-    pointer.x = e.offsetX
-    pointer.y = e.offsetY
-    }
+//     subs.onpointermove = e => {
+//     pointer.x = e.offsetX
+//     pointer.y = e.offsetY
+//     }
 
-    draw_frame; () => { 
-    subs.drawImage (Cursor, pointer.x, pointer.y)
-    requestAnimationFrame (draw_frame)
-    } 
+//     draw_frame; () => { 
+//     subs.drawImage (Cursor, pointer.x, pointer.y)
+//     requestAnimationFrame (draw_frame)
+//     } 
 
 // ------to here to see progress with the subbutton ^^^^^^^^
 
@@ -48,14 +52,14 @@ const pointer = { x : 0, y : 0 }
     // subbutton.style.textSize '100px'
     subbutton.style.width  = `200px`
     subbutton.style.height = `65px`
-    subbutton.style.backgroundColor = `gold`
+    // subbutton.style.backgroundColor = `gold`
     // subbutton.style.position = `relative`
 
-    const trans_x = `translateX(${subs.width /2 - 100}px)`
-    const trans_y = `translateY(${subs.height/2 - -300}px)`
+    const trans_x = `translateX(${cnv.width /2 - 50}px)`
+    const trans_y = `translateY(${cnv.height/2 - 750}px)`
     subbutton.style.transform = `${trans_x} ${trans_y}`
 
-    subs.append (subbutton)
+    // subs.append (subbutton)
     // subs.append (Cursor)
 
 
@@ -79,6 +83,86 @@ const pointer = { x : 0, y : 0 }
 
     // telling the subbutton upon being clicked it has to play the mover method
     subbutton.onclick = () => subbutton_mover.play()
+
+
+    
+
+    //making another button
+    const mutebutton = document.getElementById (`horseButton`)
+    // subbutton.style.textColor "black"
+    // subbutton.style.textSize '100px'
+    mutebutton.style.width  = `50px`
+    mutebutton.style.height = `50px`
+    // subbutton.style.backgroundColor = `gold`
+    const butrans_x = `translateX(${cnv.width /2 - -550}px)`
+    const butrans_y = `translateY(${cnv.height/2 - 500}px)`
+    mutebutton.style.transform = `${butrans_x} ${butrans_y}`
+    cnv.append (mutebutton)
+
+    const eTitle = document.getElementById('ecommerceTitle')
+    eTitle.style.width = '600px'
+    eTitle.style.height = '550px'
+    const etrans_x = `translateX(${cnv.width /2 - 0}px)`
+    const etrans_y = `translateY(${cnv.height/2 - 0}px)`
+    eTitle.style.transform = `${etrans_x} ${etrans_y}`
+    cnv.append (eTitle)
+
+    
+    const audios = new Audio('25th_hour.wav');
+    audios.play();
+    audios.loop = true;
+    // mutebutton.onclick = () => mutebutton_mover.play()
+
+
+//writing the audio
+// const btn = document.getElementById ('tone_switch')
+//     btn.innerText = 'Press for tone!' // give it some text
+//     btn.value = '10'                 // give it a value
+
+//     // declare a function for toggling the sound
+//     function toggle_sound () {
+
+//         // if button value is 'off'
+//         if (btn.value == 'off') {
+
+//             // set the gain to 0.3
+//             amp_node.gain.value = 0.3
+
+//             // set the value to 'on'
+//             btn.value = 'on'
+
+//             // change the text
+//             btn.innerText = 'Press to stop!'
+//         }
+
+//         // if button value is `on`
+//         else if (btn.value = 'on') {
+
+//             // set the gain to 0
+//             amp_node.gain.value = 0
+
+//             // set the value to `off`
+//             btn.value = 'off'
+
+//             // change the text
+//             btn.innerText = 'Press for tone!'
+//         }
+//     }
+
+//     // this is the click handler for the button
+//     // we are using arrow notation to write
+//     // a function with no name
+//     // ie. an anonymous function
+//     btn.onclick = () => {
+
+//         // if the audio context is still suspended
+//         // resume the audio context first
+//         if (audio_context.state != 'running') init_audio ()
+
+//         // then call the toggle sound function
+//         toggle_sound ()
+//     }
+ 
 </script>
 
 

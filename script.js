@@ -1,33 +1,49 @@
 
-document.body.style.margin   = 0
-document.body.style.overflow = `hidden`
 
-const canvas = document.getElementById('webCanvas')
-canvas.width = canvas.parentNode.scrollWidth
-canvas.height = canvas.width * 9 / 15
-canvas.style.height = `${canvas.height}px`
-canvas.style.backgroundColor = `blue`
-// const ctx = canvas.getContext('2d')
-  
-var img = 'Cursor.png'
+// function play_note (note, length) {
 
-cnv.style.cursor = `none`
-
-// ... and then you can render the cursor manually with something like:
-
-const pointer = { x : 0, y : 0 }
-
-cnv.onpointermove = e => {
-pointer.x = e.offsetX
-pointer.y = e.offsetY
-}
-
-draw_frame; () => { 
-cnv.drawImage (img, pointer.x, pointer.y)
-requestAnimationFrame (draw_frame)
-}
-
-requestAnimationFrame (draw_frame)
+//     // if the audio context is not running, resume it
+//     if (audio_context.state != 'running') init_audio ()
+    
+//     // create an oscillator
+//     const osc = audio_context.createOscillator ()
+    
+//     // make it a triangle wave this time
+//     osc.type            = 'triangle'
+    
+//     // set the value using the equation 
+//     // for midi note to Hz
+//     osc.frequency.value = 440 * 2 ** ((note - 69) / 12)
+    
+//     // create an amp node
+//     const amp = audio_context.createGain ()
+    
+//     // connect the oscillator 
+//     // to the amp
+//     // to the audio out
+//     osc.connect (amp).connect (audio_context.destination)
+    
+//     // the .currentTime property of the audio context
+//     // contains a time value in seconds
+//     const now = audio_context.currentTime
+    
+//     // make a gain envelope
+//     // start at 0
+//     amp.gain.setValueAtTime (0, now)
+    
+//     // take 0.02 seconds to go to 0.4, linearly
+//     amp.gain.linearRampToValueAtTime (0.4, now + 0.02)
+    
+//     // this method does not like going to all the way to 0
+//     // so take length seconds to go to 0.0001, exponentially
+//     amp.gain.exponentialRampToValueAtTime (0.0001, now + length)
+    
+//     // start the oscillator now
+//     osc.start (now)
+    
+//     // stop the oscillator 1 second from now
+//     osc.stop  (now + length)
+//     }
 
 
 
