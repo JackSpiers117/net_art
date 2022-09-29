@@ -13,15 +13,15 @@ function myButton()
    i=-1;
     }
 }
+
+
+
+
 //math used in Thomas Capegreco's Recursive Function tutorials, 
 //http://thomas.capogre.co/rmit/ccs/2022/09/03/recursion.html
 //I wanted to utilise the math and change some of the values to
-//turn it into a thorny tentacle horror that wiggles around instead of a tree.
-//with changes done to the values, in the math.PI * x value 
-//you can even choose 1-2 for beauty, 4 for lovecraftian horror and 
-//there was even 27 that made a real deal tentacle if you changed the
-//values of the l and r's mult/angle. But I stuck to the horror tentacle thorn thing.
-const TAU = Math.PI * 4
+//turn it into a piece of moving NFT art within the net
+const TAU = Math.PI * 2
 
 class Vector {
     constructor (x, y) {
@@ -72,7 +72,7 @@ class Creature {
 
         //width of the sway, made it a bit large so the tentacles sway hard
         //like monsterous limbs
-        this.sway_width = 0.10
+        this.sway_width = 0
 
         // random ish sway rate
         // as this.generation decreases
@@ -141,7 +141,7 @@ class Creature {
         const sway_stem = this.stem.clone ()
 
         // rotate it with the sway angle
-        sway_stem.rotate (sway_angle)
+        // sway_stem.rotate (sway_angle)
 
         // new absolute end point
         const end = this.base.clone ()

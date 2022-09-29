@@ -2,10 +2,12 @@
 <html>
   <head>
     <h1>
-      <div class="titleContainer">
+      <!-- <div class="titleContainer">
       WELCOME TO NFTLAND! WE HAVE OVERPRICED HORROR NFT AND IMPACT FONT GALORE
-    </div>
+    </div> -->
     <style>
+      
+    /* going through and giving each div some style */
     .titleContainer{
       background-color:green;
       font-family: Impact;
@@ -14,6 +16,39 @@
       text-align:center;
       padding:0%;
       margin:0%;
+    }
+    .NFTcontainer { 
+      font-family: "Comic Sans MS", "Comic Sans", cursive;
+      height: 200px;
+      position: relative;
+      text-align: center;
+      background-color:lightcyan;
+      padding:0%;
+    }
+    .NFTcontainerClose { 
+      font-family: "Comic Sans MS", "Comic Sans", cursive;
+      position: relative;
+      text-align: center;
+      background-color: lightcyan;
+      padding:0%;
+    }
+    .vertical-center {
+      
+      text-align: center;
+      margin: 0;
+      padding: 0%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+    .footer{
+      display: table;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+
     }
     </style>
     </h1>
@@ -25,25 +60,23 @@
     <!-- <img id="subscribeButton" src="Subscrib Button.jpg" alt="The Subcription Button" width="304" height="228"> -->
     <script src='https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js'></script>
     <!-- <img id="Cursor" src="Cursor.png" alt="Clickey Boy" width="64" height="64"> -->
-    <img id="ecommerceTitle" src="nftTitle.png" alt="timetoshop" width = "300" height = "200">
+    
     <canvas class="Creatures" id='the_creature' ></canvas>
-<!-- <style>
-  .Creatures{
-    margin:0%;
-    padding:0%;
-  }
-</style> -->
+    
     <script type='module'>
+      document.body.style.margin   = 0
+      document.body.style.overflow = `hidden`
       document.body.style.cursor = `url("/Cursor.png"), auto`
         // get and format the canvas element
         const cnv = document.getElementById ('the_creature')
-        const nfTitle = document.getElementById ('ecommerceTitle')
+        
+
         cnv.style.padding = 0
         cnv.width = cnv.parentNode.scrollWidth
-        cnv.height = cnv.width * 9 / 16
+        cnv.height = cnv.width * 6 / 15
         const ctx = cnv.getContext ('2d')
         // nfTitle.zindex = 3
-        cnv.append (nfTitle)
+        // cnv.append (nfTitle)
         // get canvas context
       
     
@@ -56,14 +89,14 @@
     
             angle : {
                 l : -TAU / 4,
-                r :  TAU / 15,
+                r :  TAU / 8,
             }
         }
         //deciding where to put the seed and shoots, this does change the actual
         //design of the shape if messed around with so some math will be needed
         //to keep the design and put it elsewhere.
-        const seed = new Vector (cnv.width / 2, cnv.height / 4)
-        const shoot = new Vector (0, 150)
+        const seed = new Vector (cnv.width / 2, cnv.height / 1.05)
+        const shoot = new Vector (0, -150)
         //As done in capegreco's tutorial, this is to
         //construct an object for my class and pass it 
         //the arguments, while also including canvas 2d context
@@ -77,7 +110,7 @@
 
         //This is to create a background context so
         //the drawing doesn't make this weird smearing effect.
-            ctx.fillStyle = `lightpink`
+            ctx.fillStyle = `lightgreen`
             ctx.fillRect (0, 0, cnv.width, cnv.height)
     
             //how long it takes for the creature to draw
@@ -96,11 +129,14 @@
     </script>
     <style>
       .designofbutton{
-        background-color: lightpink;
+        background-color: lightcyan;
         border:none;
         cursor:grab;
       }
     </style>
+    
+
+
 <div class="NFTcontainer">
   Please click for your free NFT! (pls no screenshot)
   <div class="vertical-center">
@@ -111,62 +147,42 @@
 <div class="NFTcontainerClose">
 That will be 35 Bitcoin, it has been deducted from your account, Thank you.
 </div>
-<style>
-.NFTcontainer { 
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  height: 200px;
-  position: relative;
-  text-align: center;
-  background-color:lightpink;
-  padding:0%;
-}
-.NFTcontainerClose { 
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  position: relative;
-  text-align: center;
-  background-color: lightpink;
-  padding:0%;
-}
-.vertical-center {
-  
-  text-align: center;
-  margin: 0;
-  padding: 0%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-</style>
+
 
 <div class ="container">
 <div class="vertical-center">
-  <div id=rotating_subbutton> </div>
+  <div id=img_Holders> </div>
   <img id="subscribeButton" src="Subscrib Button.jpg" alt="The Subcription Button" width="304" height="228">
+  <img id="ecommerceTitle" src="nftTitle.png" alt="timetoshop" width = "300" height = "200">
   <script type='module'>
 
-        const subs = document.getElementById (`rotating_subbutton`)
+    const subs = document.getElementById (`img_Holders`)
     subs.width = subs.parentNode.scrollWidth
     subs.height = subs.width * 9 / 16
     subs.style.height = `${subs.height}px`
-    // subs.style.backgroundColor = `lightblue`
     subs.style.cursor = `url("/Cursor.png"), auto`
 
-        // making the subbutton
+    //making the subbutton
     const subbutton = document.getElementById (`subscribeButton`)
-    // subbutton.style.textColor "black"
-    // subbutton.style.textSize '100px'
     subbutton.style.width  = `200px`
     subbutton.style.height = `65px`
-    // subbutton.style.backgroundColor = `gold`
     // subbutton.style.position = `relative`
 
-    const trans_x = `translateX(${subs.width /2 - 150}px)`
-    const trans_y = `translateY(${subs.height/2 - -250}px)`
+    const trans_x = `translateX(${subs.width /2 - 800}px)`
+    const trans_y = `translateY(${subs.height/2 - -400}px)`
     subbutton.style.transform = `${trans_x} ${trans_y}`
 
     subs.append (subbutton)
+    
+    const eTitle = document.getElementById('ecommerceTitle')
+    eTitle.style.width = '360px'
+    eTitle.style.height = '250px'
+    const etrans_x = `translateX(${subs.width /2 - 300}px)`
+    const etrans_y = `translateY(${subs.height/2 - 670}px)`
+    eTitle.style.transform = `${etrans_x} ${etrans_y}`
+    // subs.append (eTitle)
+    
+    
     // subs.append (Cursor)
 
 
@@ -204,12 +220,5 @@ That will be 35 Bitcoin, it has been deducted from your account, Thank you.
   <p>Music: 25th hour-schlatt crossing by Philip Milman</p>
  </div>
  <style>
-.footer{
-    display: table;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 </style>
 </html>
