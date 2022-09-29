@@ -1,52 +1,159 @@
 <!DOCTYPE html>
 <html>
-<body>
-  <script src='script.js'></script>
-  <script src='https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js'></script>
-  <canvas id=rotating_subbutton> </canvas>
-  <img id="subscribeButton" src="Subscrib Button.jpg" alt="The Subcription Button" width="304" height="228">
-  <img id="horseButton" src="etc/HorseRider1.png" alt="horseriyda" width="304" height="228">
-  <img id="ecommerceTitle" src="nftTitle.png" alt="timetoshop" width = "300" height = "200">
-  <!-- <div id=rotating_subbutton><button id='tone_switch'></button></div> -->
-  <!-- <img id="Cursor" src="Cursor.png" alt="Clickey Boy" width="64" height="64"> -->
-  <!-- <canvas id="webCanvas"></canvas> -->
+  <head>
+    <h1>
+      <div class="titleContainer">
+      WELCOME TO NFTLAND! WE HAVE OVERPRICED HORROR NFT AND IMPACT FONT GALORE
+    </div>
+    <style>
+    .titleContainer{
+      background-color:green;
+      font-family: Impact;
+      font-weight:500;
+      color:orange;
+      text-align:center;
+      padding:0%;
+      margin:0%;
+    }
+    </style>
+    </h1>
+  </head>
+  <body>
+    
+    <script src='script.js'> </script>
+    <!-- <canvas id='fractal_tree_1'></canvas> -->
+    <!-- <img id="subscribeButton" src="Subscrib Button.jpg" alt="The Subcription Button" width="304" height="228"> -->
+    <script src='https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js'></script>
+    <!-- <img id="Cursor" src="Cursor.png" alt="Clickey Boy" width="64" height="64"> -->
+    <img id="ecommerceTitle" src="nftTitle.png" alt="timetoshop" width = "300" height = "200">
+    <canvas class="Creatures" id='the_creature' ></canvas>
+<!-- <style>
+  .Creatures{
+    margin:0%;
+    padding:0%;
+  }
+</style> -->
+    <script type='module'>
+      document.body.style.cursor = `url("/Cursor.png"), auto`
+        // get and format the canvas element
+        const cnv = document.getElementById ('the_creature')
+        const nfTitle = document.getElementById ('ecommerceTitle')
+        cnv.style.padding = 0
+        cnv.width = cnv.parentNode.scrollWidth
+        cnv.height = cnv.width * 9 / 16
+        const ctx = cnv.getContext ('2d')
+        // nfTitle.zindex = 3
+        cnv.append (nfTitle)
+        // get canvas context
+      
+    
+        // these option values give a nice tree, I think
+        const options = {
+            mult : {
+                l : 0.6,
+                r : 0.8,
+            },
+    
+            angle : {
+                l : -TAU / 4,
+                r :  TAU / 15,
+            }
+        }
+        //deciding where to put the seed and shoots, this does change the actual
+        //design of the shape if messed around with so some math will be needed
+        //to keep the design and put it elsewhere.
+        const seed = new Vector (cnv.width / 2, cnv.height / 4)
+        const shoot = new Vector (0, 150)
+        //As done in capegreco's tutorial, this is to
+        //construct an object for my class and pass it 
+        //the arguments, while also including canvas 2d context
+        const creature = new Creature (seed, shoot, 12, options, ctx)
+    
+        //function to draw the frames
+        function draw_frame (now) {
+        //tried to make ctx width responsive but had no luck.
+        //ctx.canvas.width  = window.innerWidth;
+        //ctx.canvas.height = window.innerHeight;
+
+        //This is to create a background context so
+        //the drawing doesn't make this weird smearing effect.
+            ctx.fillStyle = `lightpink`
+            ctx.fillRect (0, 0, cnv.width, cnv.height)
+    
+            //how long it takes for the creature to draw
+            creature.draw (now / 750)
+        
+            //drawing a new frame after the other
+            requestAnimationFrame (draw_frame)
+        }
+    
+        //initiate the animation
+        requestAnimationFrame (draw_frame)
+
+        // var audio = new Audio('25th_hour.wav');
+        audio.play();
+        audio.loop = true;
+    </script>
+    <style>
+      .designofbutton{
+        background-color: lightpink;
+        border:none;
+        cursor:grab;
+      }
+    </style>
+<div class="NFTcontainer">
+  Please click for your free NFT! (pls no screenshot)
+  <div class="vertical-center">
+    <button class="designofbutton" onclick="myButton()"><img id="myImg" src="/etc/HorseRider1.png" width="107" height="98"> </button>
+
+  </div>
+</div>
+<div class="NFTcontainerClose">
+That will be 35 Bitcoin, it has been deducted from your account, Thank you.
+</div>
+<style>
+.NFTcontainer { 
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  height: 200px;
+  position: relative;
+  text-align: center;
+  background-color:lightpink;
+  padding:0%;
+}
+.NFTcontainerClose { 
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  position: relative;
+  text-align: center;
+  background-color: lightpink;
+  padding:0%;
+}
+.vertical-center {
   
- 
-<script type=module>
-    document.body.style.cursor = `url("/Cursor.png"), auto`
-    // document.body.style.margin   = 0
-    // document.body.style.overflow = `hidden`
-    //creating a canvas I think? Kind of confusing when I try doing this in javascript so not sure
-    const cnv = document.getElementById (`rotating_subbutton`)
-    cnv.width = cnv.parentNode.scrollWidth
-    cnv.height = cnv.width * 10 / 16
-    cnv.style.height = `${cnv.height}px`
-    cnv.style.backgroundColor = `lightpink`
+  text-align: center;
+  margin: 0;
+  padding: 0%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+</style>
 
+<div class ="container">
+<div class="vertical-center">
+  <div id=rotating_subbutton> </div>
+  <img id="subscribeButton" src="Subscrib Button.jpg" alt="The Subcription Button" width="304" height="228">
+  <script type='module'>
 
+        const subs = document.getElementById (`rotating_subbutton`)
+    subs.width = subs.parentNode.scrollWidth
+    subs.height = subs.width * 9 / 16
+    subs.style.height = `${subs.height}px`
+    // subs.style.backgroundColor = `lightblue`
+    subs.style.cursor = `url("/Cursor.png"), auto`
 
-// Hide from here--- VVVVVVV
-
-
-// subs.style.cursor = `none`
-
-// const pointer = { x : 0, y : 0 }
-
-//     subs.onpointermove = e => {
-//     pointer.x = e.offsetX
-//     pointer.y = e.offsetY
-//     }
-
-//     draw_frame; () => { 
-//     subs.drawImage (Cursor, pointer.x, pointer.y)
-//     requestAnimationFrame (draw_frame)
-//     } 
-
-// ------to here to see progress with the subbutton ^^^^^^^^
-
-
-
-    // making the subbutton
+        // making the subbutton
     const subbutton = document.getElementById (`subscribeButton`)
     // subbutton.style.textColor "black"
     // subbutton.style.textSize '100px'
@@ -55,11 +162,11 @@
     // subbutton.style.backgroundColor = `gold`
     // subbutton.style.position = `relative`
 
-    const trans_x = `translateX(${cnv.width /2 - 50}px)`
-    const trans_y = `translateY(${cnv.height/2 - 750}px)`
+    const trans_x = `translateX(${subs.width /2 - 150}px)`
+    const trans_y = `translateY(${subs.height/2 - -250}px)`
     subbutton.style.transform = `${trans_x} ${trans_y}`
 
-    // subs.append (subbutton)
+    subs.append (subbutton)
     // subs.append (Cursor)
 
 
@@ -79,113 +186,30 @@
             //making sure the subscribe button doesn't just play on web page open
             autoplay: false,
             // loop: false,
+            synth: 34
         })
+        subbutton.onclick = () => subbutton_mover.play()
+  </script>
+</div>
+</div>
 
-    // telling the subbutton upon being clicked it has to play the mover method
-    subbutton.onclick = () => subbutton_mover.play()
-
-
-    
-
-    //making another button
-    const mutebutton = document.getElementById (`horseButton`)
-    // subbutton.style.textColor "black"
-    // subbutton.style.textSize '100px'
-    mutebutton.style.width  = `50px`
-    mutebutton.style.height = `50px`
-    // subbutton.style.backgroundColor = `gold`
-    const butrans_x = `translateX(${cnv.width /2 - -550}px)`
-    const butrans_y = `translateY(${cnv.height/2 - 500}px)`
-    mutebutton.style.transform = `${butrans_x} ${butrans_y}`
-    cnv.append (mutebutton)
-
-    const eTitle = document.getElementById('ecommerceTitle')
-    eTitle.style.width = '600px'
-    eTitle.style.height = '550px'
-    const etrans_x = `translateX(${cnv.width /2 - 0}px)`
-    const etrans_y = `translateY(${cnv.height/2 - 0}px)`
-    eTitle.style.transform = `${etrans_x} ${etrans_y}`
-    cnv.append (eTitle)
-
-    
-    const audios = new Audio('25th_hour.wav');
-    audios.play();
-    audios.loop = true;
-    // mutebutton.onclick = () => mutebutton_mover.play()
-
-
-//writing the audio
-// const btn = document.getElementById ('tone_switch')
-//     btn.innerText = 'Press for tone!' // give it some text
-//     btn.value = '10'                 // give it a value
-
-//     // declare a function for toggling the sound
-//     function toggle_sound () {
-
-//         // if button value is 'off'
-//         if (btn.value == 'off') {
-
-//             // set the gain to 0.3
-//             amp_node.gain.value = 0.3
-
-//             // set the value to 'on'
-//             btn.value = 'on'
-
-//             // change the text
-//             btn.innerText = 'Press to stop!'
-//         }
-
-//         // if button value is `on`
-//         else if (btn.value = 'on') {
-
-//             // set the gain to 0
-//             amp_node.gain.value = 0
-
-//             // set the value to `off`
-//             btn.value = 'off'
-
-//             // change the text
-//             btn.innerText = 'Press for tone!'
-//         }
-//     }
-
-//     // this is the click handler for the button
-//     // we are using arrow notation to write
-//     // a function with no name
-//     // ie. an anonymous function
-//     btn.onclick = () => {
-
-//         // if the audio context is still suspended
-//         // resume the audio context first
-//         if (audio_context.state != 'running') init_audio ()
-
-//         // then call the toggle sound function
-//         toggle_sound ()
-//     }
- 
 </script>
 
+  </body>
+  <footer>
 
+  </footer>
+ <div class=footer>
+  <p>Design by Jack Spiers</p>
+  <p>Music: 25th hour-schlatt crossing by Philip Milman</p>
+ </div>
+ <style>
+.footer{
+    display: table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-
-
-<!-- ignore this code below hid it as I was going to work on making a horse racing game between 2 users where the fasted key inputs win
-but then like the rest of the code it broke and html is a pain when it comes to working out the layers and organisation and divs yeesh,
-going to either try again with a new future project post-semester or just scrap it all altogether, either way will delete in the submission-->
-
-
-  <!-- <div id= "hos1"> <img  width="100" height="200" src="/etc/HorseRider1.png" /> </div>
-  <-!-- <img width="100" height="200" src="etc/HorseRider1.png" /> -->
-  <!-- <script src=script.js></script>
-  <script src=p5.js></script> -->
-  <!-- <img id="leHorse1" src="HorseRider1.png" alt="The Jockeynhishorse" width="500" height="500"> -->
-  <!-- <script>
-  function myHorseys() {
-  var x = document.getElementById('leHorse1').src;
-  document.getElementById("lehorse").innerHTML = x;
-  }
-//  var x = document.createElement("IMG");\
-//   var x = document.getElementById("myImg"); 
-  </script> --> 
-</body>
+</style>
 </html>
